@@ -1,0 +1,14 @@
+[
+    {
+        "name": "java",
+        "image": "/images/java.jpg"
+    },
+    {
+        "name": "javascript",
+        "image": "/images/js.jpg"
+    },
+    {
+        "name": "python",
+        "image": "/images/py.jpg"
+    }
+]

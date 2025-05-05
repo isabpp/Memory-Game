@@ -1,0 +1,64 @@
+body {
+    background-color: rgb(92, 91, 105);
+    color: white;
+    /*margin-left: 650px;
+    margin-top: 200px;*/
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 0.5fr repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    margin: 10px;
+}
+
+.position {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    transition: transform 2500ms;
+    transform-style: preserve-3d;
+}
+
+/* grid-area: grid-row-start / grid-column-start / grid-row-end / grid-column-end */
+.card1 { grid-area: 2 /2 /3 /3; }
+.card2 { grid-area: 2 /3 /3 /4; }
+.card3 { grid-area: 2 /4 /3 /5; }
+.card4 { grid-area: 3 /2 /4 /3; }
+.card5 { grid-area: 3 /3 /4 /4; }
+.card6 { grid-area: 3 /4 /4 /5; }
+
+
+.front, .back {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    border-radius: 7%;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.front {
+    background-color: rgb(52, 139, 165);
+    border-style: solid;
+    border-color: rgb(28, 72, 73);
+}
+
+.back {
+    background-image: url(/images/py.jpg);
+    /*background-color: rgb(204, 116, 197);*/
+    border-style: solid;
+    border-color: rgb(71, 28, 73);  
+    transform: rotateX(180deg);
+}
+
+/*.position:hover {
+    cursor: pointer;
+    transform: rotateX(180deg);
+  }*/
