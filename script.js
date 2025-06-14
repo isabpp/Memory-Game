@@ -1,5 +1,24 @@
+let jsonCards = [];
 
-function selectCard() {
+window.onload = function() {
+    getCards();
+};
+
+async function getCards() {
+    try {
+        const response = await fetch("memorycards.json");
+
+        if (!response.ok) {
+            throw new Error('Failed to load JSON file');
+        }
+
+        jsonCards = await response.json();
+
+        console.log(jsonCards);
+
+    } catch(err) {
+        return err;
+    }
     
 }
 
