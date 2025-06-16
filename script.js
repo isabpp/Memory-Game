@@ -13,13 +13,28 @@ async function getCards() {
         }
 
         jsonCards = await response.json();
+        const allCards = jsonCards.concat(jsonCards); //using concat to double the information so we have pairs
+        
 
         console.log(jsonCards);
+        console.log(allCards);
+
+        shuffleCards(allCards);
 
     } catch(err) {
         return err;
     }
     
+}
+
+function shuffleCards(cards) {
+    //using the fisher yates shuffle to shuffle the cards
+    for (let i = cards.length -1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [cards[i], cards[j]] = [cards[j], cards[i]];
+    }
+    console.log(cards);
+    return cards; 
 }
 
 function fade(div) {
