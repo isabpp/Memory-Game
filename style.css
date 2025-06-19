@@ -9,30 +9,31 @@ body {
     align-items: center;
 }
 
-.cards {
+.card-container {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 0.5fr repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 0.5fr repeat(2, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     margin: 10px;
 }
 
-.position {
+.card {
     position: relative;
     width: 220px;
     height: 220px;
     transition: transform 2500ms;
     transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
 /* grid-area: grid-row-start / grid-column-start / grid-row-end / grid-column-end */
-.card1 { grid-area: 2 /2 /3 /3; }
-.card2 { grid-area: 2 /3 /3 /4; }
-.card3 { grid-area: 2 /4 /3 /5; }
-.card4 { grid-area: 3 /2 /4 /3; }
-.card5 { grid-area: 3 /3 /4 /4; }
-.card6 { grid-area: 3 /4 /4 /5; }
+.c0 { grid-area: 1 /1 /2 /2; }
+.c1 { grid-area: 1 /2 /2 /3; }
+.c2 { grid-area: 1 /3 /2 /4; }
+.c3 { grid-area: 2 /1 /3 /2; }
+.c4 { grid-area: 2 /2 /3 /3; }
+.c5 { grid-area: 2 /3 /3 /4; }
 
 
 .front, .back {
@@ -51,14 +52,10 @@ body {
 }
 
 .back {
-    background-image: url(/images/py.jpg);
-    /*background-color: rgb(204, 116, 197);*/
+    /*background-image: url(/images/py.jpg);
+    background-color: rgb(204, 116, 197);*/
     border-style: solid;
     border-color: rgb(71, 28, 73);  
     transform: rotateX(180deg);
 }
 
-/*.position:hover {
-    cursor: pointer;
-    transform: rotateX(180deg);
-  }*/
