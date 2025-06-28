@@ -1,5 +1,6 @@
 let jsonCards = [];
 const cardsContainer = document.querySelector('.card-container');
+const testDiv = document.querySelector('.text');
 
 window.onload = function() {
     getCards();
@@ -29,18 +30,6 @@ async function getCards() {
     
 }
 
-function fade(div) {
-    const cardFront = div.querySelector('.front');
-    
-    if (cardFront) {
-        cardFront.style.transform = 'rotateX(180deg)';
-        setTimeout(() => {
-            cardFront.style.transform = 'rotateX(0deg)';
-        }, 3000);
-    }
-    
-}
-
 function generateCards(cards) {
     cardsContainer.innerHTML = '';
 
@@ -51,16 +40,17 @@ function generateCards(cards) {
         cardObject.className = 'card';
         cardObject.id = 'c' + i;
         console.log(cardObject.id);
+        cardObject.addEventListener('click', function() {this.classList.toggle('flipped');});
 
         const cardFront = document.createElement('div');
         cardFront. className = 'front';
         cardFront.id = 'f' + i;
-        cardFront.addEventListener('click', fade(cardFront));
 
         const cardBack = document.createElement('div');
         cardBack. className = 'back';
         cardBack.id = 'b' + i;
         cardBack.style.backgroundImage = 'url(' + card.image + ')';
+
 
         cardObject.appendChild(cardFront);
         cardObject.appendChild(cardBack);
