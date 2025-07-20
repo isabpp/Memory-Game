@@ -1,5 +1,6 @@
 let jsonCards = [];
 let flippedCards = [];
+let score = 0;
 const cardsContainer = document.querySelector('.card-container');
 const testDiv = document.querySelector('.text');
 
@@ -66,6 +67,19 @@ function flipCard() {
     flippedCards.push(this.dataset.cardName);
     console.log(flippedCards);
 
+    if (flippedCards.length === 2) {
+        checkForMatch();       
+    }
+
+}
+
+function checkForMatch() {
+    if (flippedCards[0] === flippedCards[1]) {
+        console.log('found a pair! :)');
+    } else {
+        console.log('sorry, not a matching pair :(');
+    }
+    flippedCards = [];
 }
 
 function shuffleCards(cards) {
