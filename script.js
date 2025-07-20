@@ -40,7 +40,8 @@ function generateCards(cards) {
         cardObject.className = 'card';
         cardObject.id = 'c' + i;
         console.log(cardObject.id);
-        cardObject.addEventListener('click', function() {this.classList.toggle('flipped');});
+        //cardObject.addEventListener('click', function() {this.classList.toggle('flipped');});
+        cardObject.addEventListener('click', flipCard);
 
         const cardFront = document.createElement('div');
         cardFront. className = 'front';
@@ -59,6 +60,10 @@ function generateCards(cards) {
         console.log(card.image);
 
     }
+}
+
+function flipCard() {
+    this.classList.toggle('flipped');
 }
 
 function shuffleCards(cards) {
