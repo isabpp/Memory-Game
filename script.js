@@ -1,4 +1,5 @@
 let jsonCards = [];
+let flippedCards = [];
 const cardsContainer = document.querySelector('.card-container');
 const testDiv = document.querySelector('.text');
 
@@ -39,9 +40,10 @@ function generateCards(cards) {
         const cardObject = document.createElement('div');
         cardObject.className = 'card';
         cardObject.id = 'c' + i;
-        console.log(cardObject.id);
         //cardObject.addEventListener('click', function() {this.classList.toggle('flipped');});
+        cardObject.dataset.cardName = card.name; 
         cardObject.addEventListener('click', flipCard);
+        console.log(cardObject.dataset.cardName);
 
         const cardFront = document.createElement('div');
         cardFront. className = 'front';
@@ -52,18 +54,18 @@ function generateCards(cards) {
         cardBack.id = 'b' + i;
         cardBack.style.backgroundImage = 'url(' + card.image + ')';
 
-
         cardObject.appendChild(cardFront);
         cardObject.appendChild(cardBack);
         cardsContainer.appendChild(cardObject);
-
-        console.log(card.image);
 
     }
 }
 
 function flipCard() {
     this.classList.toggle('flipped');
+    flippedCards.push(this.dataset.cardName);
+    console.log(flippedCards);
+
 }
 
 function shuffleCards(cards) {
