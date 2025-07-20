@@ -3,6 +3,7 @@ let flippedCards = [];
 let score = 0;
 const cardsContainer = document.querySelector('.card-container');
 const testDiv = document.querySelector('.text');
+const scoreText = document.querySelector('.score-text');
 
 window.onload = function() {
     getCards();
@@ -76,10 +77,13 @@ function flipCard() {
 function checkForMatch() {
     if (flippedCards[0] === flippedCards[1]) {
         console.log('found a pair! :)');
+        score ++;
     } else {
         console.log('sorry, not a matching pair :(');
     }
     flippedCards = [];
+    scoreText.innerHTML = 'score: ' + score;
+
 }
 
 function shuffleCards(cards) {
